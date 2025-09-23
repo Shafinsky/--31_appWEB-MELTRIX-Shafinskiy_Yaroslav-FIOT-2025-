@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MELTRIX - PC, MAC & Console Games</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="header">
+  <div class="top-bar">
+    <!-- ЛОГО -->
+    <div class="logo-area">
+      <img src="Pics/LOGO.png" alt="MELTRIX Logo" class="logo-img">
+      <div class="logo-text">MELTRIX</div>
+    </div>
+
+    <!-- ПОШУК -->
+    <div class="search-wrapper">
+      <div class="search-bar">
+        <input type="text" placeholder="PC, MAC & CONSOLE GAMES">
+        <button class="btn-search">
+          <img src="Pics/SEARCH.png" alt="Search" class="icon-img">
+        </button>
+      </div>
+      <div class="top-searches">
+        Top Searches:
+        <ul>
+          <li><a href="#">Outlast</a></li>
+          <li><a href="#">Hell is Us</a></li>
+          <li><a href="#">Sniper Elite</a></li>
+          <li><a href="#">Destiny</a></li>
+          <li><a href="#">Spider-Man</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- КНОПКИ -->
+    <div class="header-actions">
+      <button class="btn-action sign-in" onclick="document.getElementById('form-modal').style.display='block'">SIGN IN</button>
+      <button class="btn-action">
+        <img src="Pics/LANGUAGE.png" alt="Language" class="icon-img">
+      </button>
+      <button class="btn-action">
+        <img src="Pics/PURCHASE.png" alt="Cart" class="icon-img cart-img">
+      </button>
+    </div>
+  </div>
+
+  <!-- НАВІГАЦІЯ -->
+  <nav class="nav">
+    <ol>
+      <li><a href="#">All Games</a></li>
+      <li><a href="#">Hot Deals</a></li>
+      <li><a href="#">Sales</a></li>
+      <li><a href="#">Soon</a></li>
+      <li><a href="#">Novelty</a></li>
+      <li><a href="#">XP Offers</a></li>
+      <li><a href="#">Wishlist</a></li>
+      <li><a href="#">Bundles</a></li>
+    </ol>
+  </nav>
+</header>
+
+<main>
+  <!-- SHOP BY PUBLISHER -->
+  <section class="publishers">
+    <h2>SHOP BY PUBLISHER</h2>
+    <table border="1" class="data-table">
+      <tr>
+        <td>Bethesda</td>
+        <td>Annapurna</td>
+        <td>Warner Bros</td>
+      </tr>
+    </table>
+  </section>
+
+  <!-- SHOP BY GENRE -->
+  <section class="genres">
+    <h2>SHOP BY GENRE</h2>
+    <table border="1" class="data-table">
+      <tr>
+        <td>Action</td>
+        <td>RPG</td>
+        <td>Shooter</td>
+      </tr>
+    </table>
+  </section>
+
+  <!-- GAMES ON SALE -->
+  <section class="games">
+    <h2>GAMES ON SALE</h2>
+    <table border="1" class="data-table">
+      <tr>
+        <td>Expedition - $39.99 (-32%)</td>
+        <td>Outlast - $5.99 (-70%)</td>
+        <td>Hero - $29.99 (-20%)</td>
+      </tr>
+    </table>
+  </section>
+
+  <!-- MORE CATEGORIES -->
+  <section class="categories">
+    <h2>MORE CATEGORIES</h2>
+    <table border="1" class="data-table">
+      <tr>
+        <td>Franchise</td>
+        <td>DRM</td>
+        <td>Platform</td>
+      </tr>
+      <tr>
+        <td>Coming Soon</td>
+        <td>New Release</td>
+        <td>Steam Deck Verified</td>
+      </tr>
+      <tr>
+        <td>Green Room</td>
+        <td>Genres</td>
+        <td>Promos</td>
+      </tr>
+    </table>
+    <button class="view-all">VIEW ALL GAMES</button>
+  </section>
+</main>
+
+<footer class="footer">
+  <div class="footer-links">
+    <a href="about.html">About Us (Опис предметного середовища)</a> | 
+    <a href="#">Corporate</a> | 
+    <a href="#">Gifts</a> | 
+    <a href="#">Affiliate</a> | 
+    <a href="#">Student Discount</a> | 
+    <a href="#">Blog & Free to Play</a>
+  </div>
+  <div class="socials">
+    <span>📘</span>
+    <span>🐦</span>
+    <span>📸</span>
+    <span>🎮</span>
+    <span>▶️</span>
+  </div>
+  <p>©2025 MELTRIX Gaming Limited. All rights reserved.</p>
+</footer>
+
+<!-- ФОРМА -->
+<div id="form-modal" class="form-modal">
+  <form class="signin-form">
+    <h2>Sign In / Register</h2>
+    <label>Email:</label>
+    <input type="email" required>
+    <label>Password:</label>
+    <input type="password" required>
+    <button type="submit">Login</button>
+    <button type="button" onclick="document.getElementById('form-modal').style.display='none'">Close</button>
+  </form>
+</div>
+
+</body>
+</html>

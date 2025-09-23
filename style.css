@@ -1,0 +1,335 @@
+body {
+  font-family: Arial, sans-serif;
+  background: #7c94ac;
+  margin: 0;
+  color: white;
+}
+
+.header {
+  background: #1a2a33;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  padding: 10px 20px;
+  gap: 10px;
+}
+
+/* Верхня панель */
+.top-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 40px;
+}
+
+.logo-area {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.logo-img {
+  width: 40px;
+  height: 40px;
+}
+
+.logo-text {
+  font-size: 24px;
+  color: #00ff66;
+  font-weight: bold;
+}
+
+/* Пошук */
+.search-wrapper {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.search-bar {
+  display: flex;
+  width: 100%;
+  max-width: 500px;
+}
+
+.search-bar input {
+  flex: 1;
+  padding: 8px;
+  border: none;
+  border-radius: 4px 0 0 4px;
+  outline: none;
+}
+
+.btn-search {
+  background: #00ff66;
+  border: none;
+  padding: 6px 10px;
+  border-radius: 0 4px 4px 0;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.icon-img {
+  width: 24px;
+  height: 24px;
+  object-fit: contain;
+}
+
+/* Іконки в шапці */
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.sign-in {
+  background: #00ff66;
+  border: none;
+  padding: 6px 12px;
+  cursor: pointer;
+  color: #000;
+  font-weight: bold;
+  border-radius: 4px;
+  transition: background 0.2s;
+}
+
+.sign-in:hover {
+  background: #00cc55;
+}
+
+/* Ілюстрації (глобус і корзина) */
+.illustration-row {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 40px;
+  margin: 20px 0;
+}
+
+.illustration-img {
+  object-fit: contain;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s;
+}
+
+.globe-img {
+  width: 180px;
+  height: auto;
+}
+
+.cart-img-large {
+  width: 180px;
+  height: auto;
+}
+
+.illustration-img:hover {
+  transform: scale(1.05);
+}
+
+/* Навігація */
+.nav {
+  display: flex;
+  gap: 20px;
+  justify-content: flex-start;
+  margin-left: 60px;
+}
+
+.nav a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 14px;
+  transition: color 0.2s;
+}
+
+.nav a:hover {
+  color: #00ff66;
+}
+
+/* Головний контент */
+main {
+  max-width: 1200px;
+  margin: 20px auto;
+  padding: 0 20px;
+}
+
+/* Блоки */
+.publishers, .genres, .games, .categories {
+  padding: 20px;
+}
+
+.publisher-grid, .genre-grid, .game-grid, .category-grid {
+  display: flex;
+  gap: 15px;
+  flex-wrap: wrap;
+}
+
+.publisher, .genre, .category {
+  background: #111;
+  padding: 20px;
+  flex: 1;
+  text-align: center;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: transform 0.2s, background 0.2s;
+}
+
+.publisher:hover, .genre:hover, .category:hover {
+  background: #222;
+  transform: scale(1.05);
+}
+
+/* Ігри */
+.game-card {
+  background: #111;
+  padding: 10px;
+  border-radius: 8px;
+  text-align: center;
+  position: relative;
+  width: 200px;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.game-card img {
+  width: 100%;
+  border-radius: 6px;
+}
+
+.game-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.5);
+}
+
+.discount {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  background: red;
+  padding: 3px 6px;
+  font-size: 12px;
+  border-radius: 4px;
+}
+
+.game-title {
+  margin: 10px 0 5px;
+  font-weight: bold;
+}
+
+.price {
+  color: #00ff66;
+  font-weight: bold;
+}
+
+/* Категорії */
+.view-all {
+  margin-top: 15px;
+  padding: 10px 20px;
+  background: #00ff66;
+  border: none;
+  cursor: pointer;
+  border-radius: 6px;
+  color: #000;
+  font-weight: bold;
+  transition: background 0.2s;
+}
+
+.view-all:hover {
+  background: #00cc55;
+}
+
+/* Footer */
+.footer {
+  background: #111;
+  padding: 20px;
+  text-align: center;
+  font-size: 14px;
+  color: #bbb;
+}
+
+.footer-links {
+  margin-bottom: 10px;
+}
+
+.footer-links a {
+  color: #fff;
+  text-decoration: none;
+  margin: 0 5px;
+  transition: color 0.2s;
+}
+
+.footer-links a:hover {
+  color: #00ff66;
+}
+
+.socials {
+  margin: 10px 0;
+}
+
+.socials span {
+  margin: 0 8px;
+  cursor: pointer;
+  font-size: 18px;
+  transition: color 0.2s;
+}
+
+.socials span:hover {
+  color: #00ff66;
+}
+
+/* Таблиці */
+.data-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 10px;
+  text-align: center;
+}
+
+.data-table td {
+  padding: 10px;
+  background: #111;
+  border: 1px solid #444;
+  color: #fff;
+}
+
+/* Форма */
+.form-modal {
+  display: none;
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(0,0,0,0.7);
+  display: none;
+  justify-content: center;
+  align-items: center;
+}
+
+.signin-form {
+  background: #1a2a33;
+  padding: 20px;
+  border-radius: 8px;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.signin-form input {
+  padding: 8px;
+  border: none;
+  border-radius: 4px;
+}
+
+.signin-form button {
+  padding: 8px;
+  background: #00ff66;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.signin-form button:hover {
+  background: #00cc55;
+}
