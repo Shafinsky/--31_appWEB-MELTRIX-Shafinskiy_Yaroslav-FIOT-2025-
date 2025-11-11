@@ -1,16 +1,32 @@
-body {
-  font-family: Arial, sans-serif;
-  background: #7c94ac;
+/* ===== УНІВЕРСАЛЬНІ СТИЛІ ===== */
+* {
   margin: 0;
-  color: white;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-.header {
-  background: #1a2a33;
+body {
+  font-family: "Segoe UI", Arial, sans-serif;
+  background: #1a1a1d;
   color: #fff;
+  line-height: 1.6;
+}
+
+a {
+  text-decoration: none;
+  color: #fff;
+  transition: color 0.3s;
+}
+a:hover {
+  color: #00ff66;
+}
+
+/* ===== HEADER ===== */
+.header {
+  background: #111;
+  padding: 10px 30px;
   display: flex;
   flex-direction: column;
-  padding: 10px 20px;
   gap: 10px;
 }
 
@@ -19,24 +35,24 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  gap: 40px;
+  gap: 20px;
 }
 
+/* Лого */
 .logo-area {
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 8px;
+  cursor: pointer;
 }
-
 .logo-img {
   width: 40px;
   height: 40px;
 }
-
 .logo-text {
-  font-size: 24px;
-  color: #00ff66;
+  font-size: 22px;
   font-weight: bold;
+  color: #00ff66;
 }
 
 /* Пошук */
@@ -46,290 +62,226 @@ body {
   flex-direction: column;
   align-items: center;
 }
-
 .search-bar {
   display: flex;
   width: 100%;
   max-width: 500px;
 }
-
 .search-bar input {
   flex: 1;
-  padding: 8px;
-  border: none;
+  padding: 8px 12px;
+  border: 1px solid #00ff66;
   border-radius: 4px 0 0 4px;
-  outline: none;
+  background: #222;
+  color: #fff;
 }
-
+.search-bar input:focus {
+  outline: 2px solid #00ff66;
+}
 .btn-search {
   background: #00ff66;
   border: none;
-  padding: 6px 10px;
+  padding: 0 15px;
   border-radius: 0 4px 4px 0;
   cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
 }
-
-.icon-img {
-  width: 24px;
-  height: 24px;
-  object-fit: contain;
+.btn-search img {
+  width: 18px;
+  height: 18px;
 }
 
-/* Іконки в шапці */
+/* Top Searches */
+.top-searches {
+  margin-top: 5px;
+  font-size: 13px;
+  color: #bbb;
+}
+.top-searches span {
+  margin-right: 6px;
+  color: #fff;
+  font-weight: bold;
+}
+.top-searches a {
+  margin-right: 10px;
+  color: #ccc;
+}
+.top-searches a:hover {
+  color: #00ff66;
+}
+
+/* Навігація */
+.nav ul {
+  display: flex;
+  gap: 25px;
+  list-style: none;
+}
+.nav ul li {
+  position: relative;
+}
+.nav ul li a {
+  font-size: 14px;
+  font-weight: bold;
+}
+.nav ul li a:hover {
+  color: #00ff66;
+}
+
+/* Багаторівневий список (приклад dropdown) */
+.nav ul li ul {
+  display: none;
+  position: absolute;
+  top: 25px;
+  left: 0;
+  background: #222;
+  padding: 10px;
+  border: 1px solid #00ff66;
+  border-radius: 6px;
+  list-style: none;
+}
+.nav ul li:hover ul {
+  display: block;
+}
+.nav ul li ul li {
+  margin: 5px 0;
+}
+
+/* Дії справа */
 .header-actions {
   display: flex;
   align-items: center;
   gap: 12px;
 }
-
 .sign-in {
   background: #00ff66;
   border: none;
-  padding: 6px 12px;
-  cursor: pointer;
-  color: #000;
+  padding: 6px 14px;
   font-weight: bold;
   border-radius: 4px;
-  transition: background 0.2s;
+  cursor: pointer;
+  transition: background 0.3s;
 }
-
 .sign-in:hover {
   background: #00cc55;
 }
-
-/* Ілюстрації (глобус і корзина) */
-.illustration-row {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 40px;
-  margin: 20px 0;
+.header-actions img {
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
 }
 
-.illustration-img {
-  object-fit: contain;
-  border-radius: 8px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-  transition: transform 0.3s;
-}
-
-.globe-img {
-  width: 180px;
-  height: auto;
-}
-
-.cart-img-large {
-  width: 180px;
-  height: auto;
-}
-
-.illustration-img:hover {
-  transform: scale(1.05);
-}
-
-/* Навігація */
-.nav {
-  display: flex;
-  gap: 20px;
-  justify-content: flex-start;
-  margin-left: 60px;
-}
-
-.nav a {
-  color: #fff;
-  text-decoration: none;
-  font-size: 14px;
-  transition: color 0.2s;
-}
-
-.nav a:hover {
-  color: #00ff66;
-}
-
-/* Головний контент */
+/* ===== MAIN ===== */
 main {
   max-width: 1200px;
   margin: 20px auto;
   padding: 0 20px;
 }
 
-/* Блоки */
-.publishers, .genres, .games, .categories {
-  padding: 20px;
-}
-
-.publisher-grid, .genre-grid, .game-grid, .category-grid {
-  display: flex;
-  gap: 15px;
-  flex-wrap: wrap;
-}
-
-.publisher, .genre, .category {
-  background: #111;
-  padding: 20px;
-  flex: 1;
-  text-align: center;
-  border-radius: 8px;
-  cursor: pointer;
-  transition: transform 0.2s, background 0.2s;
-}
-
-.publisher:hover, .genre:hover, .category:hover {
-  background: #222;
-  transform: scale(1.05);
-}
-
-/* Ігри */
-.game-card {
-  background: #111;
-  padding: 10px;
-  border-radius: 8px;
-  text-align: center;
-  position: relative;
-  width: 200px;
-  transition: transform 0.2s, box-shadow 0.2s;
-}
-
-.game-card img {
-  width: 100%;
-  border-radius: 6px;
-}
-
-.game-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.5);
-}
-
-.discount {
-  position: absolute;
-  top: 10px;
-  left: 10px;
-  background: red;
-  padding: 3px 6px;
-  font-size: 12px;
-  border-radius: 4px;
-}
-
-.game-title {
-  margin: 10px 0 5px;
-  font-weight: bold;
-}
-
-.price {
-  color: #00ff66;
-  font-weight: bold;
-}
-
-/* Категорії */
-.view-all {
-  margin-top: 15px;
-  padding: 10px 20px;
-  background: #00ff66;
-  border: none;
-  cursor: pointer;
-  border-radius: 6px;
-  color: #000;
-  font-weight: bold;
-  transition: background 0.2s;
-}
-
-.view-all:hover {
-  background: #00cc55;
-}
-
-/* Footer */
-.footer {
-  background: #111;
-  padding: 20px;
-  text-align: center;
-  font-size: 14px;
-  color: #bbb;
-}
-
-.footer-links {
-  margin-bottom: 10px;
-}
-
-.footer-links a {
-  color: #fff;
-  text-decoration: none;
-  margin: 0 5px;
-  transition: color 0.2s;
-}
-
-.footer-links a:hover {
-  color: #00ff66;
-}
-
-.socials {
-  margin: 10px 0;
-}
-
-.socials span {
-  margin: 0 8px;
-  cursor: pointer;
+h2 {
+  margin: 20px 0 10px;
   font-size: 18px;
-  transition: color 0.2s;
-}
-
-.socials span:hover {
   color: #00ff66;
+  border-left: 4px solid #00ff66;
+  padding-left: 8px;
 }
 
 /* Таблиці */
 .data-table {
   width: 100%;
   border-collapse: collapse;
-  margin-top: 10px;
-  text-align: center;
+  margin-bottom: 20px;
 }
-
 .data-table td {
-  padding: 10px;
-  background: #111;
-  border: 1px solid #444;
-  color: #fff;
-}
-
-/* Форма */
-.form-modal {
-  display: none;
-  position: fixed;
-  top: 0; left: 0; right: 0; bottom: 0;
-  background: rgba(0,0,0,0.7);
-  display: none;
-  justify-content: center;
-  align-items: center;
-}
-
-.signin-form {
-  background: #1a2a33;
+  background: #222;
   padding: 20px;
-  border-radius: 8px;
-  color: white;
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
+  font-weight: bold;
+  border: 1px solid #333;
+  transition: background 0.3s, transform 0.2s;
+}
+.data-table td:hover {
+  background: #333;
+  transform: scale(1.05);
 }
 
-.signin-form input {
-  padding: 8px;
-  border: none;
-  border-radius: 4px;
-}
-
-.signin-form button {
-  padding: 8px;
+/* Кнопки */
+.view-all {
   background: #00ff66;
   border: none;
-  border-radius: 4px;
-  cursor: pointer;
+  padding: 10px 20px;
+  border-radius: 6px;
   font-weight: bold;
+  cursor: pointer;
+}
+.view-all:hover {
+  background: #00cc55;
 }
 
+/* ===== FOOTER ===== */
+.footer {
+  background: #111;
+  padding: 20px;
+  text-align: center;
+  font-size: 14px;
+  color: #bbb;
+  border-top: 2px solid #00ff66;
+}
+.footer-links {
+  margin-bottom: 10px;
+}
+.footer-links a {
+  margin: 0 8px;
+}
+.footer-links a:hover {
+  color: #00ff66;
+}
+.socials span {
+  margin: 0 8px;
+  cursor: pointer;
+  font-size: 18px;
+}
+.socials span:hover {
+  color: #00ff66;
+}
+
+/* ===== ФОРМА (Modal) ===== */
+#form-modal {
+  display: none;
+}
+.signin-form {
+  background: #222;
+  border: 2px solid #00ff66;
+  padding: 20px;
+  border-radius: 10px;
+}
+.signin-form h2 {
+  text-align: center;
+  margin-bottom: 15px;
+}
+.signin-form input {
+  width: 100%;
+  padding: 10px;
+  margin: 8px 0;
+  border: 1px solid #333;
+  border-radius: 6px;
+  background: #111;
+  color: #fff;
+}
+.signin-form input:focus {
+  outline: 2px solid #00ff66;
+}
+.signin-form button {
+  width: 100%;
+  padding: 10px;
+  background: #00ff66;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: bold;
+  margin-top: 8px;
+}
 .signin-form button:hover {
   background: #00cc55;
 }
+
