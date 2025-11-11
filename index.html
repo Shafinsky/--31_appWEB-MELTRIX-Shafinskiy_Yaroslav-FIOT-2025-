@@ -44,7 +44,13 @@
 
   <!-- НАВІГАЦІЯ -->
 <nav class="nav">
-  <ul>
+  <div class="burger-menu">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+
+  <ul class="nav-links">
     <li><a href="#">All Games</a></li>
     <li><a href="#">Hot Deals</a></li>
     <li><a href="#">Sales</a></li>
@@ -59,63 +65,144 @@
 
 <main>
   <!-- SHOP BY PUBLISHER -->
-  <section class="publishers">
+<section class="publishers">
+  <div class="section-header">
     <h2>SHOP BY PUBLISHER</h2>
-    <table class="data-table">
-      <tr>
-        <td>Bethesda</td>
-        <td>Annapurna</td>
-        <td>Warner Bros</td>
-      </tr>
-    </table>
-  </section>
+    <button class="view-all">VIEW ALL</button>
+  </div>
 
-  <!-- SHOP BY GENRE -->
-  <section class="genres">
+  <div class="carousel">
+    <button class="carousel-btn left">❮</button>
+    <div class="carousel-track">
+      <div class="publisher-card"><img src="Pics/shop_by_publisher/Bethesda.png" alt="Bethesda"></div>
+      <div class="publisher-card"><img src="Pics/shop_by_publisher/Annapurna.png" alt="Annapurna"></div>
+      <div class="publisher-card"><img src="Pics/shop_by_publisher/Warner_Bros..png" alt="Warner Bros"></div>
+      <div class="publisher-card"><img src="Pics/shop_by_publisher/Play_Station.png" alt="Play Station"></div>
+      <div class="publisher-card"><img src="Pics/shop_by_publisher/Square_Enix.png" alt="Square Enix"></div>
+      <div class="publisher-card"><img src="Pics/shop_by_publisher/Team17.png" alt="Team17"></div>
+      <div class="publisher-card"><img src="Pics/shop_by_publisher/ThqNordic.png" alt="ThqNordic"></div>
+      <div class="publisher-card"><img src="Pics/shop_by_publisher/Ubisoft.png" alt="Ubisoft"></div>
+      <div class="publisher-card"><img src="Pics/shop_by_publisher/2K.png" alt="2K"></div>
+    </div>
+    <button class="carousel-btn right">❯</button>
+  </div>
+</section>
+
+<!-- SHOP BY GENRE -->
+<section class="genres">
+  <div class="section-header">
     <h2>SHOP BY GENRE</h2>
-    <table class="data-table">
-      <tr>
-        <td>Action</td>
-        <td>RPG</td>
-        <td>Shooter</td>
-      </tr>
-    </table>
-  </section>
+    <button class="view-all">VIEW ALL</button>
+  </div>
+
+  <div class="carousel">
+    <button class="carousel-btn left">❮</button>
+    <div class="carousel-track">
+      <div class="genres-card"><img src="Pics/shop_by_genre/action.png" alt="Action"></div>
+      <div class="genres-card"><img src="Pics/shop_by_genre/adventure.png" alt="Adventure"></div>
+      <div class="genres-card"><img src="Pics/shop_by_genre/casual.png" alt="Casual"></div>
+      <div class="genres-card"><img src="Pics/shop_by_genre/indie.png" alt="Indie"></div>
+      <div class="genres-card"><img src="Pics/shop_by_genre/rpg.png" alt="RPG"></div>
+      <div class="genres-card"><img src="Pics/shop_by_genre/shooter.png" alt="Shooter"></div>
+      <div class="genres-card"><img src="Pics/shop_by_genre/simulation.png" alt="Simulation"></div>
+      <div class="genres-card"><img src="Pics/shop_by_genre/strategy.png" alt="Strategy"></div>
+      <div class="genres-card"><img src="Pics/shop_by_genre/vr.png" alt="VR"></div>
+    </div>
+    <button class="carousel-btn right">❯</button>
+  </div>
+</section>
 
   <!-- GAMES ON SALE -->
-  <section class="games">
+<section class="games-sale">
+  <div class="section-header">
     <h2>GAMES ON SALE</h2>
-    <table class="data-table">
-      <tr>
-        <td>Expedition - $39.99 (-32%)</td>
-        <td>Outlast - $5.99 (-70%)</td>
-        <td>Hero - $29.99 (-20%)</td>
-      </tr>
-    </table>
-  </section>
+    <button class="view-all">VIEW ALL</button>
+  </div>
+
+  <div class="games-grid">
+    <!-- Game 1 -->
+    <div class="game-card">
+      <div class="game-img">
+        <img src="Pics/shop_by_sale/Whiskerwood.png" alt="Whiskerwood">
+        <span class="discount">-20%</span>
+      </div>
+      <div class="game-info">
+        <p class="price"><span class="old-price">2399₴</span> <span class="new-price">1919₴</span></p>
+      </div>
+      <div class="game-actions">
+        <button class="btn-cart">🛒 ADD TO CART</button>
+        <button class="btn-fav">♡</button>
+      </div>
+    </div>
+
+    <!-- Game 2 -->
+    <div class="game-card">
+      <div class="game-img">
+        <img src="Pics/shop_by_sale/Wreckreation.png" alt="Wreckreation">
+        <span class="discount">-10%</span>
+      </div>
+      <div class="game-info">
+        <p class="price"><span class="old-price">740₴</span> <span class="new-price">666₴</span></p>
+      </div>
+      <div class="game-actions">
+        <button class="btn-cart">🛒 ADD TO CART</button>
+        <button class="btn-fav">♡</button>
+      </div>
+    </div>
+
+    <!-- Game 3 -->
+    <div class="game-card">
+      <div class="game-img">
+        <img src="Pics/shop_by_sale/Super_fantasy_kingdom!.png" alt="Super Fantasy Kingdom">
+      </div>
+      <div class="game-info">
+        <p class="price"><span class="new-price">2199₴</span></p>
+      </div>
+      <div class="game-actions">
+        <button class="btn-cart">🛒 ADD TO CART</button>
+        <button class="btn-fav">♡</button>
+      </div>
+    </div>
+
+    <!-- Game 4 -->
+    <div class="game-card">
+      <div class="game-img">
+        <img src="Pics/shop_by_sale/Tormented_souls_II.png" alt="Tormented Souls 2">
+      </div>
+      <div class="game-info">
+        <p class="price"><span class="new-price">849₴</span></p>
+      </div>
+      <div class="game-actions">
+        <button class="btn-cart">🛒 ADD TO CART</button>
+        <button class="btn-fav">♡</button>
+      </div>
+    </div>
+  </div>
+</section>
 
   <!-- MORE CATEGORIES -->
-  <section class="categories">
-    <h2>MORE CATEGORIES</h2>
-    <table class="data-table">
-      <tr>
-        <td>Franchise</td>
-        <td>DRM</td>
-        <td>Platform</td>
-      </tr>
-      <tr>
-        <td>Coming Soon</td>
-        <td>New Release</td>
-        <td>Steam Deck Verified</td>
-      </tr>
-      <tr>
-        <td>Green Room</td>
-        <td>Genres</td>
-        <td>Promos</td>
-      </tr>
-    </table>
-    <button class="view-all">VIEW ALL GAMES</button>
-  </section>
+<section class="more-categories">
+  <h2>MORE CATEGORIES</h2>
+  <div class="categories-grid">
+    <button class="category-btn">FRANCHISE</button>
+    <button class="category-btn">DRM</button>
+    <button class="category-btn">PLATFORM</button>
+    <button class="category-btn">COMING SOON</button>
+    <button class="category-btn">NEW RELEASE</button>
+    <button class="category-btn">STEAM DECK VERIFIED</button>
+    <button class="category-btn">GREEN ROOM</button>
+    <button class="category-btn">GENRES</button>
+    <button class="category-btn">PROMOS</button>
+    <button class="category-btn">SURVIVAL</button>
+  </div>
+</section>
+
+<!-- VIEW ALL GAMES -->
+<section class="view-all-games-section">
+  <div class="games-background">
+    <button class="view-all-main">VIEW ALL GAMES</button>
+  </div>
+</section>
 </main>
 
 <footer class="footer">
@@ -128,11 +215,7 @@
     <a href="#">Blog & Free to Play</a>
   </div>
   <div class="socials">
-    <span>📘</span>
-    <span>🐦</span>
-    <span>📸</span>
-    <span>🎮</span>
-    <span>▶️</span>
+    <span><img src="Pics/SOCIAL.png" alt="socials"></span>
   </div>
   <p>©2025 MELTRIX Gaming Limited. All rights reserved.</p>
 </footer>
@@ -150,5 +233,7 @@
   </form>
 </div>
 
+
+<script src="script.js"></script>
 </body>
 </html>
