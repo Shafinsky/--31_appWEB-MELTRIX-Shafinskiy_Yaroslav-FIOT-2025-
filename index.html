@@ -38,7 +38,7 @@
     <div class="header-actions">
       <button class="sign-in">SIGN IN</button>
       <button><img src="Pics/LANGUAGE.png" alt="Language"></button>
-      <button><img src="Pics/PURCHASE.png" alt="Cart"></button>
+      <button id="open-cart"><img src="Pics/PURCHASE.png" alt="Cart"></button>
     </div>
   </div>
 
@@ -74,15 +74,60 @@
   <div class="carousel">
     <button class="carousel-btn left">❮</button>
     <div class="carousel-track">
-      <div class="publisher-card"><img src="Pics/shop_by_publisher/Bethesda.png" alt="Bethesda"></div>
-      <div class="publisher-card"><img src="Pics/shop_by_publisher/Annapurna.png" alt="Annapurna"></div>
-      <div class="publisher-card"><img src="Pics/shop_by_publisher/Warner_Bros..png" alt="Warner Bros"></div>
-      <div class="publisher-card"><img src="Pics/shop_by_publisher/Play_Station.png" alt="Play Station"></div>
-      <div class="publisher-card"><img src="Pics/shop_by_publisher/Square_Enix.png" alt="Square Enix"></div>
-      <div class="publisher-card"><img src="Pics/shop_by_publisher/Team17.png" alt="Team17"></div>
-      <div class="publisher-card"><img src="Pics/shop_by_publisher/ThqNordic.png" alt="ThqNordic"></div>
-      <div class="publisher-card"><img src="Pics/shop_by_publisher/Ubisoft.png" alt="Ubisoft"></div>
-      <div class="publisher-card"><img src="Pics/shop_by_publisher/2K.png" alt="2K"></div>
+      <div class="publisher-card" 
+          data-title="Bethesda"
+          data-description="Легендарний видавець, відомий іграми з відкритим світом та культовими RPG."
+          data-img="Pics/shop_by_publisher/Bethesda.png">
+          <img src="Pics/shop_by_publisher/Bethesda.png" alt="Bethesda">
+      </div>
+      <div class="publisher-card" 
+          data-title="Annapurna"
+          data-description="Видавець атмосферних інді-проєктів з акцентом на сюжет та мистецький стиль."
+          data-img="Pics/shop_by_publisher/Annapurna.png">
+          <img src="Pics/shop_by_publisher/Annapurna.png" alt="Annapurna">
+      </div>
+      <div class="publisher-card" 
+          data-title="Warner Bros"
+          data-description="Великий видавець AAA-проєктів за популярними кінофраншизами."
+          data-img="Pics/shop_by_publisher/Warner_Bros..png">
+          <img src="Pics/shop_by_publisher/Warner_Bros..png" alt="Warner Bros">
+      </div>
+      <div class="publisher-card" 
+          data-title="Play Station"
+          data-description="Преміальні ексклюзиви та блокбастери зі всесвіту PlayStation Studios."
+          data-img="Pics/shop_by_publisher/Play_Station.png">
+          <img src="Pics/shop_by_publisher/Play_Station.png" alt="Play Station">
+      </div>
+      <div class="publisher-card" 
+          data-title="Square Enix"
+          data-description="Японський видавець світових хітів у жанрах RPG та пригод."
+          data-img="Pics/shop_by_publisher/Square_Enix.png">
+          <img src="Pics/shop_by_publisher/Square_Enix.png" alt="Square Enix">
+      </div>
+      <div class="publisher-card" 
+          data-title="Team17"
+          data-description="Відомі інді-проєктами та легендарною серією Worms."
+          data-img="Pics/shop_by_publisher/Team17.png">
+          <img src="Pics/shop_by_publisher/Team17.png" alt="Team17">
+      </div>
+      <div class="publisher-card" 
+          data-title="ThqNordic"
+          data-description="Видавець ремастерів і різнопланових AA-проєктів."
+          data-img="Pics/shop_by_publisher/ThqNordic.png">
+          <img src="Pics/shop_by_publisher/ThqNordic.png" alt="ThqNordic">
+      </div>
+      <div class="publisher-card" 
+          data-title="Ubisoft"
+          data-description="Французький гігант індустрії — творці Assassin’s Creed, Far Cry та багатьох інших."
+          data-img="Pics/shop_by_publisher/Ubisoft.png">
+          <img src="Pics/shop_by_publisher/Ubisoft.png" alt="Ubisoft">
+      </div>
+      <div class="publisher-card" 
+          data-title="2K"
+          data-description="Видавець спортивних симуляторів та відомих AAA-проєктів."
+          data-img="Pics/shop_by_publisher/2K.png">
+          <img src="Pics/shop_by_publisher/2K.png" alt="2K">
+      </div>
     </div>
     <button class="carousel-btn right">❯</button>
   </div>
@@ -98,15 +143,60 @@
   <div class="carousel">
     <button class="carousel-btn left">❮</button>
     <div class="carousel-track">
-      <div class="genres-card"><img src="Pics/shop_by_genre/action.png" alt="Action"></div>
-      <div class="genres-card"><img src="Pics/shop_by_genre/adventure.png" alt="Adventure"></div>
-      <div class="genres-card"><img src="Pics/shop_by_genre/casual.png" alt="Casual"></div>
-      <div class="genres-card"><img src="Pics/shop_by_genre/indie.png" alt="Indie"></div>
-      <div class="genres-card"><img src="Pics/shop_by_genre/rpg.png" alt="RPG"></div>
-      <div class="genres-card"><img src="Pics/shop_by_genre/shooter.png" alt="Shooter"></div>
-      <div class="genres-card"><img src="Pics/shop_by_genre/simulation.png" alt="Simulation"></div>
-      <div class="genres-card"><img src="Pics/shop_by_genre/strategy.png" alt="Strategy"></div>
-      <div class="genres-card"><img src="Pics/shop_by_genre/vr.png" alt="VR"></div>
+      <div class="genre-card"
+          data-title="ACTION"
+          data-description="Динамічні ігри з яскравими битвами та інтенсивним геймплеєм."
+          data-img="Pics/shop_by_genre/action.png">
+          <img src="Pics/shop_by_genre/action.png" alt="Action">
+      </div>
+      <div class="genre-card"
+          data-title="ADVANTURE"
+          data-description="Ігри з акцентом на сюжет, дослідження та занурення у світ."
+          data-img="Pics/shop_by_genre/adventure.png">
+          <img src="Pics/shop_by_genre/adventure.png" alt="Adventure">
+      </div>
+      <div class="genre-card"
+          data-title="CASUAL"
+          data-description="Легкі та невимушені ігри для коротких сесій."
+          data-img="Pics/shop_by_genre/casual.png">
+          <img src="Pics/shop_by_genre/casual.png" alt="Casual">
+      </div>
+      <div class="genre-card"
+          data-title="INDIE"
+          data-description="Незалежні проєкти зі свіжими ідеями та унікальною атмосферою."
+          data-img="Pics/shop_by_genre/indie.png">
+          <img src="Pics/shop_by_genre/indie.png" alt="Indie">
+      </div>
+      <div class="genre-card"
+          data-title="RPG"
+          data-description="Ігри з розвитком персонажа, вибором шляху та глибокими сюжетами."
+          data-img="Pics/shop_by_genre/rpg.png">
+          <img src="Pics/shop_by_genre/rpg.png" alt="RPG">
+      </div>
+      <div class="genre-card"
+          data-title="SHOOTER"
+          data-description="Екшен-ігри з динамічними перестрілками та швидким геймплеєм."
+          data-img="Pics/shop_by_genre/shooter.png">
+          <img src="Pics/shop_by_genre/shooter.png" alt="Shooter">
+      </div>
+      <div class="genre-card"
+          data-title="SIMULATION"
+          data-description="Ігри, що моделюють діяльність чи систему — від ферм до польотів."
+          data-img="Pics/shop_by_genre/simulation.png">
+          <img src="Pics/shop_by_genre/simulation.png" alt="Simulation">
+      </div>
+      <div class="genre-card"
+          data-title="STRATEGY"
+          data-description="Ігри з тактичним та стратегічним плануванням."
+          data-img="Pics/shop_by_genre/strategy.png">
+          <img src="Pics/shop_by_genre/strategy.png" alt="Strategy">
+      </div>
+      <div class="genre-card"
+          data-title="VR"
+          data-description="Ігри для віртуальної реальності з повним зануренням у геймплей."
+          data-img="Pics/shop_by_genre/vr.png">
+          <img src="Pics/shop_by_genre/vr.png" alt="VR">
+      </div>
     </div>
     <button class="carousel-btn right">❯</button>
   </div>
@@ -177,6 +267,68 @@
         <button class="btn-fav">♡</button>
       </div>
     </div>
+
+    <!-- Game 3 -->
+    <div class="game-card">
+      <div class="game-img">
+        <img src="Pics/shop_by_sale/Super_fantasy_kingdom!.png" alt="Super Fantasy Kingdom">
+      </div>
+      <div class="game-info">
+        <p class="price"><span class="new-price">2199₴</span></p>
+      </div>
+      <div class="game-actions">
+        <button class="btn-cart">🛒 ADD TO CART</button>
+        <button class="btn-fav">♡</button>
+      </div>
+    </div>
+    
+    <!-- Game 1 -->
+    <div class="game-card">
+      <div class="game-img">
+        <img src="Pics/shop_by_sale/Whiskerwood.png" alt="Whiskerwood">
+        <span class="discount">-20%</span>
+      </div>
+      <div class="game-info">
+        <p class="price"><span class="old-price">2399₴</span> <span class="new-price">1919₴</span></p>
+      </div>
+      <div class="game-actions">
+        <button class="btn-cart">🛒 ADD TO CART</button>
+        <button class="btn-fav">♡</button>
+      </div>
+    </div>
+
+    <!-- Game 4 -->
+    <div class="game-card">
+      <div class="game-img">
+        <img src="Pics/shop_by_sale/Tormented_souls_II.png" alt="Tormented Souls 2">
+      </div>
+      <div class="game-info">
+        <p class="price"><span class="new-price">849₴</span></p>
+      </div>
+      <div class="game-actions">
+        <button class="btn-cart">🛒 ADD TO CART</button>
+        <button class="btn-fav">♡</button>
+      </div>
+    </div>
+
+<!-- Game 2 -->
+    <div class="game-card">
+      <div class="game-img">
+        <img src="Pics/shop_by_sale/Wreckreation.png" alt="Wreckreation">
+        <span class="discount">-10%</span>
+      </div>
+      <div class="game-info">
+        <p class="price"><span class="old-price">740₴</span> <span class="new-price">666₴</span></p>
+      </div>
+      <div class="game-actions">
+        <button class="btn-cart">🛒 ADD TO CART</button>
+        <button class="btn-fav">♡</button>
+      </div>
+    </div>
+  </div>
+  <div class="pagination">
+  <button id="prev-page">Previous</button>
+  <button id="next-page">Next</button>
   </div>
 </section>
 
@@ -220,20 +372,45 @@
   <p>©2025 MELTRIX Gaming Limited. All rights reserved.</p>
 </footer>
 
-<!-- ФОРМА -->
-<div id="form-modal" class="form-modal">
-  <form class="signin-form">
-    <h2>Sign In / Register</h2>
-    <label>Email:</label>
-    <input type="email" required>
-    <label>Password:</label>
-    <input type="password" required>
-    <button type="submit">Login</button>
-    <button type="button" onclick="document.getElementById('form-modal').style.display='none'">Close</button>
-  </form>
-</div>
+<!-- FORM MODAL -->
+    <div id="form-modal" class="form-modal">
+        <form class="signin-form">
+            <h2>Sign In / Register</h2>
+            <label>Email:</label>
+            <input type="email" required>
 
+            <label>Password:</label>
+            <input type="password" required>
 
+            <button type="submit">Login</button>
+            <button type="button" onclick="document.getElementById('form-modal').style.display='none'">Close</button>
+        </form>
+    </div>
+
+    <!-- INFO MODAL -->
+    <div id="modal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn">&times;</span>
+            <img id="modal-img" src="" alt="">
+            <h2 id="modal-title"></h2>
+            <p id="modal-desc"></p>
+        </div>
+    </div>
+
+        <!-- CART MODAL -->
+    <div id="cart-modal" class="modal">
+      <div class="modal-content cart">
+          <span class="close-cart">&times;</span>
+          <h2>Your Cart</h2>
+
+          <div id="cart-items"></div>
+
+          <div class="cart-footer">
+            <strong>Total: <span id="cart-total">0₴</span></strong>
+          </div>
+      </div>
+    </div>
+    
 <script src="script.js"></script>
 </body>
 </html>
