@@ -1,178 +1,318 @@
-// === CAROUSELS ===
-document.querySelectorAll('.carousel').forEach(carousel => {
-  const track = carousel.querySelector('.carousel-track');
-  const nextBtn = carousel.querySelector('.carousel-btn.right');
-  const prevBtn = carousel.querySelector('.carousel-btn.left');
+document.addEventListener("DOMContentLoaded", () => {
 
-  nextBtn.addEventListener('click', () => {
-    track.scrollBy({ left: 300, behavior: 'smooth' });
-  });
+  const $ = (s) => document.querySelector(s);
+  const $$ = (s) => document.querySelectorAll(s);
 
-  prevBtn.addEventListener('click', () => {
-    track.scrollBy({ left: -300, behavior: 'smooth' });
-  });
-});
+function initCarousel(trackId, speed = 0.5) {
+  const track = document.getElementById(trackId);
+  let position = 0;
 
+  track.innerHTML += track.innerHTML;
 
-// === BURGER MENU ===
-const burger = document.querySelector(".burger-menu");
-const navLinks = document.querySelector(".nav-links");
+  function animate() {
+    position -= speed;
+    if (Math.abs(position) >= track.scrollWidth / 2) {
+      position = 0;
+    }
+    track.style.transform = `translateX(${position}px)`;
+    requestAnimationFrame(animate);
+  }
 
-burger.addEventListener("click", () => {
-  burger.classList.toggle("active");
-  navLinks.classList.toggle("active");
-});
-
-
-// === MODAL LOGIC ===
-const modal = document.getElementById("modal");
-const modalImg = document.getElementById("modal-img");
-const modalTitle = document.getElementById("modal-title");
-const modalDesc = document.getElementById("modal-desc");
-const closeBtn = document.querySelector(".close-btn");
-
-// Відкрити модалку
-function openModal(card) {
-    modalImg.src = card.dataset.img;
-    modalTitle.textContent = card.dataset.title;
-    modalDesc.textContent = card.dataset.description;
-    modal.style.display = "flex";
+  animate();
 }
 
-// Закрити модалку
-closeBtn.addEventListener("click", () => {
-    modal.style.display = "none";
-});
+initCarousel("publisherTrack");
+initCarousel("genreTrack");
 
-window.addEventListener("click", (e) => {
-    if (e.target === modal) modal.style.display = "none";
-});
+  /* =====================================
+     GAMES ON SALE (4 PER PAGE PAGINATION)
+  ======================================*/
+  const games = Array.from($$(".games-sale .game-card"));
+  const prevBtn = $("#prev-page");
+  const nextBtn = $("#next-page");
 
+  const perPage = 4;
+  let currentPage = 1;
+  const totalPages = Math.ceil(games.length / perPage);
 
-// === ДЕЛЕГУВАННЯ ПОДІЙ ДЛЯ КАРТОК ===
+  function renderSalePage() {
+    games.forEach((game, index) => {
+      const start = (currentPage - 1) * perPage;
+      const end = currentPage * perPage;
 
-// SHOP BY PUBLISHER
-document.querySelector(".publishers .carousel-track")
-  .addEventListener("click", (e) => {
-    const card = e.target.closest(".publisher-card");
-    if (card) openModal(card);
-});
+      game.style.display = index >= start && index < end ? "block" : "none";
+    });
 
-// SHOP BY GENRE
-document.querySelector(".genres .carousel-track")
-  .addEventListener("click", (e) => {
-    const card = e.target.closest(".genre-card");
-    if (card) openModal(card);
-});
+    if (prevBtn) prevBtn.disabled = currentPage === 1;
+    if (nextBtn) nextBtn.disabled = currentPage === totalPages;
+  }
 
+  if (prevBtn && nextBtn) {
+    prevBtn.addEventListener("click", () => {
+      if (currentPage > 1) {
+        currentPage--;
+        renderSalePage();
+      }
+    });
 
-// === SIGN IN MODAL ===
-const signInBtn = document.querySelector(".sign-in");
-const formModal = document.getElementById("form-modal");
+    nextBtn.addEventListener("click", () => {
+      if (currentPage < totalPages) {
+        currentPage++;
+        renderSalePage();
+      }
+    });
+  }
 
-signInBtn.addEventListener("click", () => {
-    formModal.style.display = "flex";
-});
+  renderSalePage();
 
-window.addEventListener("click", (e) => {
-    if (e.target === formModal) formModal.style.display = "none";
-});
+  /* =====================================
+     CART SYSTEM
+  ======================================*/
+  let cart = JSON.parse(localStorage.getItem("cart")) || [];
 
-// ========= CART ==========
-let cart = JSON.parse(localStorage.getItem("cart")) || [];
-
-// відкриття / закриття
-const cartModal = document.getElementById("cart-modal");
-document.getElementById("open-cart").onclick = () => cartModal.style.display = "flex";
-document.querySelector(".close-cart").onclick = () => cartModal.style.display = "none";
-
-// збереження
-function saveCart() {
+  function saveCart() {
     localStorage.setItem("cart", JSON.stringify(cart));
-}
+  }
 
-// рендер
-function renderCart() {
-    const container = document.getElementById("cart-items");
-    const total = document.getElementById("cart-total");
+  function renderCartPreview() {
+    const preview = $(".cart-preview");
+    if (!preview) return;
+
+    preview.innerHTML = "";
+
+    if (cart.length === 0) {
+      preview.innerHTML = "<p>Your cart is empty</p>";
+      return;
+    }
+
+    cart.forEach((item, index) => {
+      preview.innerHTML += `
+        <div class="cart-preview-item">
+          <img src="${item.img}" width="40">
+          <span>${item.title}</span>
+          <button class="remove-preview" data-index="${index}">🗑</button>
+        </div>
+      `;
+    });
+
+    preview.innerHTML += `
+      <button class="view-cart-btn">GO TO CART</button>
+    `;
+  }
+
+  function renderCartModal() {
+    const container = $("#cart-items");
+    const total = $("#cart-total");
+    if (!container) return;
+
     container.innerHTML = "";
-
     let sum = 0;
 
     cart.forEach((item, index) => {
-        sum += item.price;
+      sum += item.price;
 
-        container.innerHTML += `
-            <div class="cart-item">
-                <img src="${item.img}">
-                <div>
-                    <h4>${item.title}</h4>
-                    <p>${item.price}₴</p>
-                    <span class="remove" data-index="${index}">Remove</span>
-                </div>
-            </div>
-        `;
+      container.innerHTML += `
+        <div class="cart-item">
+          <img src="${item.img}" width="60">
+          <div>
+            <h4>${item.title}</h4>
+            <p>${item.price}₴</p>
+            <span class="remove" data-index="${index}">Remove</span>
+          </div>
+        </div>
+      `;
     });
 
     total.textContent = sum + "₴";
-}
+  }
 
-// видалення товару
-document.getElementById("cart-items").addEventListener("click", e => {
-    if (e.target.classList.contains("remove")) {
-        cart.splice(e.target.dataset.index, 1);
-        saveCart();
-        renderCart();
-    }
-});
+  /* =====================================
+     GLOBAL CLICK HANDLER
+  ======================================*/
+  document.addEventListener("click", (e) => {
 
-renderCart();
-
-// ADD TO CART
-document.querySelector(".games-grid").addEventListener("click", e => {
+    /* ADD TO CART */
     if (e.target.classList.contains("btn-cart")) {
-        const card = e.target.closest(".game-card");
 
-        const title = card.querySelector("img").alt;
-        const price = parseInt(card.querySelector(".new-price")?.textContent 
-                          || card.querySelector(".price").textContent);
+      const card = e.target.closest(".game-card");
+      const title = card.querySelector("img").alt;
+      const priceText = card.querySelector(".new-price")?.textContent ||
+                        card.querySelector(".price").textContent;
 
-        const img = card.querySelector("img").src;
+      const price = parseInt(priceText.replace(/\D/g, ""));
+      const img = card.querySelector("img").src;
 
-        cart.push({ title, price, img });
+      cart.push({ title, price, img });
 
-        saveCart();
-        renderCart();
-        alert("Added to cart!");
+      saveCart();
+      renderCartPreview();
+      renderCartModal();
     }
-});
 
-// ===== PAGINATION for GAMES ON SALE =====
-const games = Array.from(document.querySelectorAll(".games-grid .game-card"));
-let currentPage = 1;
-const perPage = 4;
+    /* REMOVE FROM PREVIEW */
+    if (e.target.classList.contains("remove-preview")) {
+      cart.splice(e.target.dataset.index, 1);
+      saveCart();
+      renderCartPreview();
+      renderCartModal();
+    }
 
-function renderGames() {
-    games.forEach((game, idx) => {
-        game.style.display =
-            idx >= (currentPage - 1) * perPage && idx < currentPage * perPage
-            ? "block"
-            : "none";
+    /* REMOVE FROM MODAL */
+    if (e.target.classList.contains("remove")) {
+      cart.splice(e.target.dataset.index, 1);
+      saveCart();
+      renderCartPreview();
+      renderCartModal();
+    }
+
+    /* OPEN CART */
+    if (e.target.closest("#cart-icon") || e.target.classList.contains("view-cart-btn")) {
+      $("#cart-modal").style.display = "flex";
+    }
+
+    /* CLOSE CART */
+    if (e.target.classList.contains("close-cart") || e.target.id === "cart-modal") {
+      $("#cart-modal").style.display = "none";
+    }
+
+  });
+
+  /* ========================= AUTH MODAL ==========================*/
+  const signInBtn = $(".sign-in"); // кнопка у хедері 
+  const formModal = $("#form-modal"); // модалка 
+  const authClose = $(".auth-close"); // кнопка X 
+  const authForms = $$(".auth-form"); // всі форми 
+  const loginFormElement = $("#login-form"); // форма логіну 
+  function openAuthModal() {
+    formModal.style.display = "flex";
+  }
+  function closeAuthModal() {
+    formModal.style.display = "none";
+
+    authForms.forEach(form => {
+      form.querySelectorAll("input").forEach(input => input.value = "");
     });
+  }
+  if (signInBtn && formModal) {
+    window.addEventListener("click", (e) => {
+      if (e.target === formModal) {
+        formModal.style.display = "none";
+      }
+    });
+    // Відкрити модалку 
+    signInBtn.addEventListener("click", (e) => {
+      e.stopPropagation();
+      openAuthModal();
+    });
+    // Закрити по кнопці X 
+    if (authClose) {
+      authClose.addEventListener("click", closeAuthModal);
+    }
+    // Закрити по кліку поза формою 
+    formModal.addEventListener("click", (e) => {
+      if (e.target === formModal) {
+        closeAuthModal();
+      }
+    });
+    // ОБРОБКА КНОПКИ SIGN IN (submit) 
+    if (loginFormElement) {
+      loginFormElement.addEventListener("submit", (e) => {
+        e.preventDefault(); // зупиняємо перезавантаження 
+        const email = loginFormElement.querySelector("input[type='email']").value;
+        const password = loginFormElement.querySelector("input[type='password']").value;
+
+        if (email.trim() === "" || password.trim() === "") {
+          alert("Please fill in all fields");
+          return;
+        }
+        // тут можна додати перевірку або авторизацію
+        alert("Successfully signed in!");
+        closeAuthModal(); // закриваємо і очищаємо 
+      });
+    }
+  }
+
+  /* ========================= AUTH TABS ==========================*/
+  const tabLogin = $("#tab-login");
+  const tabRegister = $("#tab-register");
+  const loginForm = $("#login-form");
+  const registerForm = $("#register-form");
+  if (tabLogin && tabRegister) {
+    tabLogin.addEventListener("click", () => {
+      tabLogin.classList.add("active");
+      tabRegister.classList.remove("active");
+      loginForm.classList.add("active");
+      registerForm.classList.remove("active");
+    });
+    tabRegister.addEventListener("click", () => {
+      tabRegister.classList.add("active");
+      tabLogin.classList.remove("active");
+      registerForm.classList.add("active");
+      loginForm.classList.remove("active");
+    });
+  }
+
+  /* ========================= MODAL LOGIC ==========================*/
+  const modal = $("#modal");
+  const modalImg = $("#modal-img");
+  const modalTitle = $("#modal-title");
+  const modalDesc = $("#modal-desc");
+  const closeBtn = $(".close-btn");
+
+  function openModal(card) {
+    if (!modal) return;
+    modalImg.src = card.dataset.img;
+    modalTitle.textContent = card.dataset.title;
+    modalDesc.textContent = card.dataset.description;
+
+    modal.style.display = "flex";
+  }
+  if (closeBtn && modal) {
+    closeBtn.addEventListener("click", () => {
+      modal.style.display = "none";
+    });
+    window.addEventListener("click", (e) => {
+      if (e.target === modal) modal.style.display = "none";
+    });
+  }
+  /* ========================= EVENT DELEGATION (CARDS) ==========================*/
+  document.addEventListener("click", (e) => {
+    const publisher = e.target.closest(".publisher-card");
+    const genre = e.target.closest(".genres-card");
+
+    if (publisher) openModal(publisher);
+    if (genre) openModal(genre);
+  });
+
+  /* =====================================
+   CART HOVER DELAY LOGIC
+=====================================*/
+const cartIcon = document.querySelector("#cart-icon");
+const cartPreview = document.querySelector(".cart-preview");
+
+if (cartIcon && cartPreview) {
+
+  let hideTimeout;
+
+  function showCart() {
+    clearTimeout(hideTimeout);
+    cartPreview.classList.add("active");
+  }
+
+  function hideCart() {
+    hideTimeout = setTimeout(() => {
+      cartPreview.classList.remove("active");
+    }, 300); // затримка 300мс
+  }
+
+  cartIcon.addEventListener("mouseenter", showCart);
+  cartIcon.addEventListener("mouseleave", hideCart);
+
+  cartPreview.addEventListener("mouseenter", showCart);
+  cartPreview.addEventListener("mouseleave", hideCart);
 }
 
-document.getElementById("next-page").onclick = () => {
-    if (currentPage * perPage < games.length) {
-        currentPage++;
-        renderGames();
-    }
-};
+  renderCartPreview();
+  renderCartModal();
 
-document.getElementById("prev-page").onclick = () => {
-    if (currentPage > 1) {
-        currentPage--;
-        renderGames();
-    }
-};
-
-renderGames();
+});

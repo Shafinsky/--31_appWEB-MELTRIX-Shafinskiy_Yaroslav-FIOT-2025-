@@ -9,58 +9,77 @@
 <body>
 
 <header class="header">
+  <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;600;700&display=swap" rel="stylesheet">
   <div class="top-bar">
-    <!-- ЛОГО -->
     <div class="logo-area">
       <img src="Pics/LOGO.png" alt="MELTRIX Logo" class="logo-img">
       <div class="logo-text">MELTRIX</div>
     </div>
 
-    <!-- ПОШУК -->
-<div class="search-wrapper">
-  <div class="search-bar">
-    <input type="text" placeholder="PC, MAC & CONSOLE GAMES">
-    <button class="btn-search">
-      <img src="Pics/SEARCH.png" alt="Search">
-    </button>
-  </div>
-  <div class="top-searches">
-    <span>Top Searches:</span>
-    <a href="#">Outlast</a>
-    <a href="#">Hell is Us</a>
-    <a href="#">Sniper Elite</a>
-    <a href="#">Destiny</a>
-    <a href="#">Spider-Man</a>
-  </div>
-</div>
+    <div class="search-wrapper">
+      <div class="search-bar">
+        <input type="text" placeholder="PC, MAC & CONSOLE GAMES">
+        <button class="btn-search">
+          <img src="Pics/SEARCH.png" alt="Search">
+        </button>
+      </div>
+      <div class="top-searches">
+        <span>Top Searches:</span>
+        <a href="#">Outlast</a>
+        <a href="#">Hell is Us</a>
+        <a href="#">Sniper Elite</a>
+        <a href="#">Destiny</a>
+        <a href="#">Spider-Man</a>
+      </div>
+    </div>
 
-    <!-- Дії -->
     <div class="header-actions">
       <button class="sign-in">SIGN IN</button>
-      <button><img src="Pics/LANGUAGE.png" alt="Language"></button>
-      <button id="open-cart"><img src="Pics/PURCHASE.png" alt="Cart"></button>
+
+      <div class="language-dropdown">
+        <button class="lang-btn"><img src="Pics/LANGUAGE.png" alt="Language"></button>
+        <div class="lang-menu">
+          <span>English</span>
+          <span>Deutsch</span>
+          <span>Français</span>
+          <span>Español</span>
+          <span>Українська</span>
+        </div>
+      </div>
+
+      <div class="cart-dropdown">
+        <button id="cart-icon"><img src="Pics/PURCHASE.png" alt="Cart"></button>
+        <div class="cart-preview">
+          <p>Your cart is empty</p>
+          <button class="view-cart-btn">GO TO CART</button>
+        </div>
+      </div>
+
     </div>
   </div>
 
-  <!-- НАВІГАЦІЯ -->
-<nav class="nav">
-  <div class="burger-menu">
-    <span></span>
-    <span></span>
-    <span></span>
-  </div>
+  <nav class="main-nav">
+    <ul>
+      <li class="catalog">
+        <a href="#">All Games ▾</a>
+        <div class="catalog-dropdown">
+          <a href="#">Shop Publishers</a>
+          <a href="#">Shop Genres</a>
+          <a href="#">PC Games</a>
+          <a href="#">On Sale</a>
+          <a href="#">All Games</a>
+        </div>
+      </li>
 
-  <ul class="nav-links">
-    <li><a href="#">All Games</a></li>
-    <li><a href="#">Hot Deals</a></li>
-    <li><a href="#">Sales</a></li>
-    <li><a href="#">Soon</a></li>
-    <li><a href="#">Novelty</a></li>
-    <li><a href="#">XP Offers</a></li>
-    <li><a href="#">Wishlist</a></li>
-    <li><a href="#">Bundles</a></li>
-  </ul>
-</nav>
+      <li><a href="#">HOT DEALS</a></li>
+      <li><a href="#">GREEN ROOM</a></li>
+      <li><a href="#">COMING SOON</a></li>
+      <li><a href="#">NEW</a></li>
+      <li><a href="#">XP OFFERS</a></li>
+      <li><a href="#">WISHLIST</a></li>
+      <li><a href="#">BUNDLES</a></li>
+    </ul>
+  </nav>
 </header>
 
 <main>
@@ -72,8 +91,7 @@
   </div>
 
   <div class="carousel">
-    <button class="carousel-btn left">❮</button>
-    <div class="carousel-track">
+    <div class="carousel-track" id="publisherTrack">
       <div class="publisher-card" 
           data-title="Bethesda"
           data-description="Легендарний видавець, відомий іграми з відкритим світом та культовими RPG."
@@ -129,7 +147,6 @@
           <img src="Pics/shop_by_publisher/2K.png" alt="2K">
       </div>
     </div>
-    <button class="carousel-btn right">❯</button>
   </div>
 </section>
 
@@ -141,64 +158,62 @@
   </div>
 
   <div class="carousel">
-    <button class="carousel-btn left">❮</button>
-    <div class="carousel-track">
-      <div class="genre-card"
+    <div class="carousel-track" id="genreTrack">
+      <div class="genres-card"
           data-title="ACTION"
           data-description="Динамічні ігри з яскравими битвами та інтенсивним геймплеєм."
           data-img="Pics/shop_by_genre/action.png">
           <img src="Pics/shop_by_genre/action.png" alt="Action">
       </div>
-      <div class="genre-card"
+      <div class="genres-card"
           data-title="ADVANTURE"
           data-description="Ігри з акцентом на сюжет, дослідження та занурення у світ."
           data-img="Pics/shop_by_genre/adventure.png">
           <img src="Pics/shop_by_genre/adventure.png" alt="Adventure">
       </div>
-      <div class="genre-card"
+      <div class="genres-card"
           data-title="CASUAL"
           data-description="Легкі та невимушені ігри для коротких сесій."
           data-img="Pics/shop_by_genre/casual.png">
           <img src="Pics/shop_by_genre/casual.png" alt="Casual">
       </div>
-      <div class="genre-card"
+      <div class="genres-card"
           data-title="INDIE"
           data-description="Незалежні проєкти зі свіжими ідеями та унікальною атмосферою."
           data-img="Pics/shop_by_genre/indie.png">
           <img src="Pics/shop_by_genre/indie.png" alt="Indie">
       </div>
-      <div class="genre-card"
+      <div class="genres-card"
           data-title="RPG"
           data-description="Ігри з розвитком персонажа, вибором шляху та глибокими сюжетами."
           data-img="Pics/shop_by_genre/rpg.png">
           <img src="Pics/shop_by_genre/rpg.png" alt="RPG">
       </div>
-      <div class="genre-card"
+      <div class="genres-card"
           data-title="SHOOTER"
           data-description="Екшен-ігри з динамічними перестрілками та швидким геймплеєм."
           data-img="Pics/shop_by_genre/shooter.png">
           <img src="Pics/shop_by_genre/shooter.png" alt="Shooter">
       </div>
-      <div class="genre-card"
+      <div class="genres-card"
           data-title="SIMULATION"
           data-description="Ігри, що моделюють діяльність чи систему — від ферм до польотів."
           data-img="Pics/shop_by_genre/simulation.png">
           <img src="Pics/shop_by_genre/simulation.png" alt="Simulation">
       </div>
-      <div class="genre-card"
+      <div class="genres-card"
           data-title="STRATEGY"
           data-description="Ігри з тактичним та стратегічним плануванням."
           data-img="Pics/shop_by_genre/strategy.png">
           <img src="Pics/shop_by_genre/strategy.png" alt="Strategy">
       </div>
-      <div class="genre-card"
+      <div class="genres-card"
           data-title="VR"
           data-description="Ігри для віртуальної реальності з повним зануренням у геймплей."
           data-img="Pics/shop_by_genre/vr.png">
           <img src="Pics/shop_by_genre/vr.png" alt="VR">
       </div>
     </div>
-    <button class="carousel-btn right">❯</button>
   </div>
 </section>
 
@@ -373,28 +388,44 @@
 </footer>
 
 <!-- FORM MODAL -->
-    <div id="form-modal" class="form-modal">
-        <form class="signin-form">
-            <h2>Sign In / Register</h2>
-            <label>Email:</label>
-            <input type="email" required>
-
-            <label>Password:</label>
-            <input type="password" required>
-
-            <button type="submit">Login</button>
-            <button type="button" onclick="document.getElementById('form-modal').style.display='none'">Close</button>
+    <div id="form-modal" class="auth-modal">
+    
+      <div class="auth-wrapper">
+    
+        <span class="auth-close">&times;</span>
+    
+        <h2 class="auth-title">Welcome to MELTRIX</h2>
+    
+        <div class="auth-tabs">
+          <button id="tab-login" class="active">Sign In</button>
+          <button id="tab-register">Register</button>
+        </div>
+    
+        <form id="login-form" class="auth-form active">
+          <input type="email" placeholder="Email" required>
+          <input type="password" placeholder="Password" required>
+          <button type="submit">SIGN IN</button>
         </form>
+    
+        <form id="register-form" class="auth-form">
+          <input type="text" placeholder="Username" required>
+          <input type="email" placeholder="Email" required>
+          <input type="password" placeholder="Password" required>
+          <button type="submit">REGISTER</button>
+        </form>
+    
+      </div>
     </div>
 
     <!-- INFO MODAL -->
     <div id="modal" class="modal">
-        <div class="modal-content">
-            <span class="close-btn">&times;</span>
-            <img id="modal-img" src="" alt="">
-            <h2 id="modal-title"></h2>
-            <p id="modal-desc"></p>
-        </div>
+      <div class="modal-content">
+        <span class="close-btn">&times;</span>
+        <img id="modal-img">
+        <h2 id="modal-title"></h2>
+        <p id="modal-desc"></p>
+        <button id="modal-go">VIEW GAMES</button>
+      </div>
     </div>
 
         <!-- CART MODAL -->
