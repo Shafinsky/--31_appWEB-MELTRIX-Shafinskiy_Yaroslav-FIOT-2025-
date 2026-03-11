@@ -155,15 +155,7 @@ a:hover {
   align-items: center;
   gap: 12px;
 }
-.sign-in {
-  background: #00ff66;
-  border: none;
-  padding: 6px 14px;
-  font-weight: bold;
-  border-radius: 4px;
-  cursor: pointer;
-  transition: background 0.3s;
-}
+
 .sign-in:hover {
   background: #00cc55;
 }
@@ -181,10 +173,28 @@ main {
 }
 
 h2 {
+  font-family: "Space Grotesk", sans-serif;
+  font-weight: 600;
+  text-transform: uppercase;
   margin: 20px 0 10px;
   font-size: 18px;
   color: #00ff66;
   margin-bottom: 15px;
+  transition: 0.3s;
+  text-shadow:
+    0 0 8px rgba(0, 255, 136, 0.6),
+    0 0 18px rgba(0, 255, 136, 0.3);
+}
+
+h2:hover {
+  color: #00ff88;
+  letter-spacing: 2.5px;
+}
+
+.modal-content h2 {
+  font-size: 28px;
+  text-align: center;
+  margin-bottom: 20px;
 }
 
 /* Таблиці */
@@ -211,11 +221,19 @@ h2 {
   border: none;
   padding: 10px 20px;
   border-radius: 6px;
+  letter-spacing: 0.5px;
+  color: #fff;
   font-weight: bold;
   cursor: pointer;
+  background: linear-gradient(45deg, #00ff88, #00c853);
+  box-shadow: 0 4px 15px rgba(0,255,120,0.35);
+
+  transition: all 0.3s ease;
 }
 .view-all:hover {
   background: #00cc55;
+  transform: translateY(-2x) scale(1.04);
+  box-shadow: 0 6px 20px rgba(0,255,120,0.6);
 }
 
 /* ===== FOOTER ===== */
@@ -870,7 +888,7 @@ header {
 .auth-title {
   text-align: center;
   margin-bottom: 20px;
-  color: #00ff66;
+  color: #b3c5ba;
 }
 
 /* close button */
@@ -907,7 +925,7 @@ header {
 }
 
 .auth-tabs .active {
-  background: #00ff66;
+  background: #a1b6a9;
   color: #000;
 }
 
