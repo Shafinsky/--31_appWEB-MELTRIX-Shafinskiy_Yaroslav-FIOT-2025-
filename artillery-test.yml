@@ -1,0 +1,14 @@
+config:
+  target: "http://localhost:3000"
+  phases:
+    - duration: 30
+      arrivalRate: 10
+      name: Warm up
+    - duration: 30
+      arrivalRate: 50
+      name: Load test
+
+scenarios:
+  - flow:
+      - get:
+          url: "/api/games"

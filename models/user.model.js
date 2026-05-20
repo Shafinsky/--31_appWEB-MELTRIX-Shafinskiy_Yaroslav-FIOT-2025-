@@ -12,15 +12,42 @@ const User = sequelize.define("User", {
 
   avatar_url: { type: DataTypes.STRING },
 
+  is_verified: {
+    type: DataTypes.BOOLEAN,
+    defaultValue: false,
+  },
+
+  verify_token: {
+    type: DataTypes.STRING,
+    allowNull: true,
+  },
+
+  refresh_token: {
+    type: DataTypes.TEXT,
+    allowNull: true,
+  },
+
+  reset_token: {
+    type: DataTypes.TEXT,
+  },
+
+  reset_token_exp: {
+    type: DataTypes.DATE,
+  },
+
   role: {
     type: DataTypes.ENUM("user", "publisher", "admin"),
     defaultValue: "user",
+    allowNull: false,
   },
 
   created_at: {
     type: DataTypes.DATE,
     defaultValue: DataTypes.NOW,
   },
+}, {
+  tableName: "Users",
+  timestamps: true,
 });
 
 module.exports = User;
